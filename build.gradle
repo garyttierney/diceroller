@@ -1,0 +1,29 @@
+buildscript {
+    ext {
+        tyrus_version = '1.12'
+        javax_websocket_version = '1.1'
+        simpleslack_version = '1.0.0'
+        junit_version = '4.12'
+    }
+}
+
+group 'com.github.garyttierney'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    compile group: 'javax.websocket', name: 'javax.websocket-client-api', version: javax_websocket_version
+    compile group: 'org.glassfish.tyrus.bundles', name: 'tyrus-standalone-client', version: tyrus_version
+    compile group: 'org.glassfish.tyrus', name: 'tyrus-container-grizzly-client', version: tyrus_version
+    compile group: 'com.ullink.slack', name: 'simpleslackapi', version: simpleslack_version
+
+    testCompile group: 'junit', name: 'junit', version: junit_version
+}
